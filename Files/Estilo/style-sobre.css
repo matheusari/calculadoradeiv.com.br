@@ -1,0 +1,312 @@
+/* Importando fontes */
+@font-face {
+  font-family: "light";
+  src: url("Font/Inter/Inter-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "light-italic";
+  src: url("Font/Inter/inter-light-italic.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "regular";
+  src: url("Font/Inter/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "semi-bold";
+  src: url("Font/Inter/Inter-SemiBold.ttf") format("truetype");
+}
+
+/* Personalizando o scroll da página */
+html ::-webkit-scrollbar {
+  width: 11px;
+}
+html ::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  border: 2px solid rgb(240, 240, 240);
+  background: #60bdab;
+}
+html ::-webkit-scrollbar-track {
+  background: rgb(240, 240, 240);
+}
+
+/* Resetando as configurações da página */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #67c3b1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* Remova a altura fixa para que o corpo possa se estender conforme o conteúdo */
+}
+
+.container {
+  /* Background */
+  background: linear-gradient(
+    to bottom left,
+    #67c3b1,
+    #86cabd,
+    #bbefca,
+    #99ee8c
+  );
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh; /* Use min-height para garantir que o contêiner tenha pelo menos a altura da tela */
+  display: flex;
+  flex-direction: column; /* Isso garante que o contêiner se comporte como uma coluna flexível */
+}
+
+.inner-rectangle {
+  max-width: 1000px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto; /* Para centralizar o retângulo interno */
+
+  /* Adicionando display flex para dividir em duas colunas */
+  display: flex;
+  justify-content: space-between;
+}
+
+.column-left {
+  /* Definindo largura das colunas */
+  width: 50%;
+  height: auto;
+  padding: 0px 9px 0px 18px;
+  background-color: transparent;
+}
+
+.column-right {
+  /* Definindo largura das colunas */
+  width: 50%;
+  height: auto;
+  padding: 0px 18px 0px 9px;
+  background-color: transparent;
+}
+
+/* Defina a animação de entrada */
+@keyframes Opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilos para os retângulos dentro da coluna da esquerda */
+.rectangle {
+  margin: 15px 0px 15px 0px;
+  border-radius: 13px;
+  padding: 25px;
+  background-color: white;
+  border: 1px solid white;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
+
+  cursor: default;
+
+  /* Adicione a animação aqui */
+  animation: Opacity 0.5s ease-out;
+}
+
+.rectangle:hover {
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.2));
+  background-color: rgb(250, 250, 250);
+  border: 1px solid rgb(159, 206, 216);
+  transition: all 0.2s;
+}
+
+.rectangle h2 {
+  text-align: center;
+  margin-bottom: 15px;
+
+  font-family: "semi-bold";
+  font-size: 17px;
+  color: #3d8897;
+
+  cursor: default;
+}
+
+.rectangle p {
+  text-align: justify;
+
+  font-family: "light";
+  font-size: 15px;
+  line-height: 23px;
+  color: black;
+
+  cursor: default;
+}
+
+.rectangle p b {
+  font-family: "semi-bold";
+}
+
+.rectangle p i {
+  font-family: "light-italic";
+}
+
+.rectangle b a {
+  text-decoration: underline;
+  color: #3d8897;
+  cursor: pointer;
+}
+
+.rectangle b a:hover {
+  color: #81c6d4;
+  transition: all 0.3s;
+}
+
+.formula-centralizada {
+  text-align: center;
+
+  font-family: "semi-bold";
+  font-size: 15px;
+
+  cursor: default;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.creditos-dev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  /* Adicione a animação aqui */
+  animation: slideUp 0.5s ease-out;
+}
+
+.elements-dev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding-bottom: 15px;
+}
+
+.link-dev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  gap: 5px;
+}
+
+.link-dev:hover {
+  opacity: 50%;
+  transition: all 0.2s;
+}
+
+.logo-dev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-dev img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 15px;
+  width: auto;
+}
+
+.texto-dev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.texto-dev p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "regular";
+  font-size: 12px;
+  color: #2d7e8c;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.botao-retornar {
+  max-width: 1000px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto; /* Para centralizar o retângulo interno */
+
+  /* Adicionando display flex para dividir em duas colunas */
+  display: flex;
+  justify-content: space-between;
+
+  /* Adicione a animação aqui */
+  animation: slideDown 0.5s ease-out;
+}
+
+.botao-retornar a {
+  margin-top: 15px;
+  margin-left: 18px;
+  padding: 10px;
+
+  font-family: "regular";
+  font-size: 14px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
+}
+
+.botao-retornar a:hover {
+  color: #bbefca;
+  background-color: #3d8897;
+  border: 1px solid #3d8897;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
+  transition: all 0.3s;
+}
+
+@media (max-width: 680px) {
+  .inner-rectangle {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+    padding: 0px 18px 0px 18px;
+  }
+
+  #first-rectangle-right {
+    margin: 0px 0px 15px 0px;
+  }
+}

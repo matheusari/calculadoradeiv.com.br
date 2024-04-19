@@ -1,0 +1,1410 @@
+/* Importando fontes */
+@font-face {
+  font-family: "light";
+  src: url("Font/Inter/Inter-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "light-italic";
+  src: url("Font/Inter/inter-light-italic.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "regular";
+  src: url("Font/Inter/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "bold";
+  src: url("Font/Inter/Inter-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "poppins";
+  src: url("Font/Poppins/Poppins-Light.ttf") format("truetype");
+}
+
+/* Personalizando o scroll da página */
+html ::-webkit-scrollbar {
+  width: 11px;
+}
+html ::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  border: 2px solid rgb(240, 240, 240);
+  background: #60bdab;
+}
+html ::-webkit-scrollbar-track {
+  background: rgb(240, 240, 240);
+}
+
+/* Resetando as configurações da página */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #3d8897; /* Cor atrás da imagem em caso de bug */
+
+  /* Background */
+  background-image: url(Images/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: cover;
+}
+
+/* Configurações para telas acima de 610px de altura */
+/* OBS: Fiz isso pois a div "retangulo" não estava ficando centralizada em telas pequenas */
+@media screen and (min-height: 610px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 100vh;
+  }
+
+  .retangulo {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 25px;
+
+    padding: 30px;
+    margin: auto;
+
+    background-color: white;
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.18));
+  }
+}
+
+/* Configurações para telas abaixo de 610px de altura */
+/* OBS: Fiz isso pois a div "retangulo" não estava ficando centralizada em telas pequenas */
+@media screen and (max-height: 610px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .retangulo {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 25px;
+
+    padding: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    background-color: white;
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.18));
+
+    /* Adicione a animação aqui */
+    animation: slideIn 0.5s ease-out;
+  }
+}
+
+/* Elemento-pai da escrita dos stats e seus respectivos valores (Ex: Ataque 0) */
+.texto-ataque,
+.texto-defesa,
+.texto-ps {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  cursor: default;
+}
+
+/* Título de cada atributo ("Ataque", "Defesa" e "PS") */
+.texto-titulo-ataque,
+.texto-titulo-defesa,
+.texto-titulo-ps {
+  font-family: "light";
+  font-size: 16px;
+  color: black;
+
+  cursor: default;
+}
+
+/* Stats de cada atributo (Inicialmente 0 para os três atributos) */
+.texto-stat-ataque,
+.texto-stat-defesa,
+.texto-stat-ps {
+  font-family: "regular";
+  font-size: 16px;
+  color: black;
+
+  cursor: default;
+}
+
+/* Elemento-pai dos quadradinhos de cada atributo */
+.quadrados-ataque,
+.quadrados-defesa {
+  width: 100%;
+  height: 15px;
+  border-radius: 20px;
+
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  background-color: #e1e3e0;
+}
+
+.quadrados-ps {
+  width: 100%;
+  height: 15px;
+  border-radius: 20px;
+
+  margin-top: 10px;
+
+  background-color: #e1e3e0;
+}
+
+/* Div criada apenas para alinhar os quadrados */
+.quadrados-ataque-align,
+.quadrados-defesa-align,
+.quadrados-ps-align {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Personalizando CADA quadradinho (Ataque) */
+.quadrado-ataque-1,
+.quadrado-ataque-2,
+.quadrado-ataque-3,
+.quadrado-ataque-4,
+.quadrado-ataque-5,
+.quadrado-ataque-6,
+.quadrado-ataque-7,
+.quadrado-ataque-8,
+.quadrado-ataque-9,
+.quadrado-ataque-10,
+.quadrado-ataque-11,
+.quadrado-ataque-12,
+.quadrado-ataque-13,
+.quadrado-ataque-14,
+.quadrado-ataque-15 {
+  width: calc(100% / 15);
+  height: 15px;
+
+  background-color: #e1e3e0;
+  border-right: solid 1px rgba(0, 0, 0, 0.05);
+  border-left: solid 1px rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
+}
+
+/* Personalizando CADA quadradinho (Defesa) */
+.quadrado-defesa-1,
+.quadrado-defesa-2,
+.quadrado-defesa-3,
+.quadrado-defesa-4,
+.quadrado-defesa-5,
+.quadrado-defesa-6,
+.quadrado-defesa-7,
+.quadrado-defesa-8,
+.quadrado-defesa-9,
+.quadrado-defesa-10,
+.quadrado-defesa-11,
+.quadrado-defesa-12,
+.quadrado-defesa-13,
+.quadrado-defesa-14,
+.quadrado-defesa-15 {
+  width: calc(100% / 15);
+  height: 15px;
+
+  background-color: #e1e3e0;
+  border-right: solid 1px rgba(0, 0, 0, 0.05);
+  border-left: solid 1px rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
+}
+
+/* Personalizando CADA quadradinho (PS) */
+.quadrado-ps-1,
+.quadrado-ps-2,
+.quadrado-ps-3,
+.quadrado-ps-4,
+.quadrado-ps-5,
+.quadrado-ps-6,
+.quadrado-ps-7,
+.quadrado-ps-8,
+.quadrado-ps-9,
+.quadrado-ps-10,
+.quadrado-ps-11,
+.quadrado-ps-12,
+.quadrado-ps-13,
+.quadrado-ps-14,
+.quadrado-ps-15 {
+  width: calc(100% / 15);
+  height: 15px;
+
+  background-color: #e1e3e0;
+  border-right: solid 1px rgba(0, 0, 0, 0.05);
+  border-left: solid 1px rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
+}
+
+/* Arredondando a borda esquerda dos primeiros quadradinhos */
+.quadrado-ataque-1,
+.quadrado-defesa-1,
+.quadrado-ps-1 {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  border-left: 0;
+}
+
+/* Arredondando a borda direita dos últimos quadradinhos */
+.quadrado-ataque-15,
+.quadrado-defesa-15,
+.quadrado-ps-15 {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  border-right: 0;
+}
+
+/* Colocando a borda branca entre os quadradinhos 5/6 e 10/11 */
+.quadrado-ataque-6,
+.quadrado-ataque-11,
+.quadrado-defesa-6,
+.quadrado-defesa-11,
+.quadrado-ps-6,
+.quadrado-ps-11 {
+  border-left: solid 3px white;
+}
+
+/* Quadradinhos selecionados ficam pintados de laranja */
+.quadrado-ataque-1.selected,
+.quadrado-ataque-2.selected,
+.quadrado-ataque-3.selected,
+.quadrado-ataque-4.selected,
+.quadrado-ataque-5.selected,
+.quadrado-ataque-6.selected,
+.quadrado-ataque-7.selected,
+.quadrado-ataque-8.selected,
+.quadrado-ataque-9.selected,
+.quadrado-ataque-10.selected,
+.quadrado-ataque-11.selected,
+.quadrado-ataque-12.selected,
+.quadrado-ataque-13.selected,
+.quadrado-ataque-14.selected,
+.quadrado-ataque-15.selected,
+.quadrado-defesa-1.selected,
+.quadrado-defesa-2.selected,
+.quadrado-defesa-3.selected,
+.quadrado-defesa-4.selected,
+.quadrado-defesa-5.selected,
+.quadrado-defesa-6.selected,
+.quadrado-defesa-7.selected,
+.quadrado-defesa-8.selected,
+.quadrado-defesa-9.selected,
+.quadrado-defesa-10.selected,
+.quadrado-defesa-11.selected,
+.quadrado-defesa-12.selected,
+.quadrado-defesa-13.selected,
+.quadrado-defesa-14.selected,
+.quadrado-defesa-15.selected,
+.quadrado-ps-1.selected,
+.quadrado-ps-2.selected,
+.quadrado-ps-3.selected,
+.quadrado-ps-4.selected,
+.quadrado-ps-5.selected,
+.quadrado-ps-6.selected,
+.quadrado-ps-7.selected,
+.quadrado-ps-8.selected,
+.quadrado-ps-9.selected,
+.quadrado-ps-10.selected,
+.quadrado-ps-11.selected,
+.quadrado-ps-12.selected,
+.quadrado-ps-13.selected,
+.quadrado-ps-14.selected,
+.quadrado-ps-15.selected {
+  background-color: #f6a034;
+}
+
+/* Passando o cursor por cima de quadradinhos selecionados ele fica laranja escuro */
+.quadrado-ataque-1:hover,
+.quadrado-ataque-2:hover,
+.quadrado-ataque-3:hover,
+.quadrado-ataque-4:hover,
+.quadrado-ataque-5:hover,
+.quadrado-ataque-6:hover,
+.quadrado-ataque-7:hover,
+.quadrado-ataque-8:hover,
+.quadrado-ataque-9:hover,
+.quadrado-ataque-10:hover,
+.quadrado-ataque-11:hover,
+.quadrado-ataque-12:hover,
+.quadrado-ataque-13:hover,
+.quadrado-ataque-14:hover,
+.quadrado-ataque-15:hover,
+.quadrado-defesa-1:hover,
+.quadrado-defesa-2:hover,
+.quadrado-defesa-3:hover,
+.quadrado-defesa-4:hover,
+.quadrado-defesa-5:hover,
+.quadrado-defesa-6:hover,
+.quadrado-defesa-7:hover,
+.quadrado-defesa-8:hover,
+.quadrado-defesa-9:hover,
+.quadrado-defesa-10:hover,
+.quadrado-defesa-11:hover,
+.quadrado-defesa-12:hover,
+.quadrado-defesa-13:hover,
+.quadrado-defesa-14:hover,
+.quadrado-defesa-15:hover,
+.quadrado-ps-1:hover,
+.quadrado-ps-2:hover,
+.quadrado-ps-3:hover,
+.quadrado-ps-4:hover,
+.quadrado-ps-5:hover,
+.quadrado-ps-6:hover,
+.quadrado-ps-7:hover,
+.quadrado-ps-8:hover,
+.quadrado-ps-9:hover,
+.quadrado-ps-10:hover,
+.quadrado-ps-11:hover,
+.quadrado-ps-12:hover,
+.quadrado-ps-13:hover,
+.quadrado-ps-14:hover,
+.quadrado-ps-15:hover {
+  background-color: #e59530;
+}
+
+/* Passando o cursor por cima de quadradinhos NÃO selecionados ele fica cinza escuro */
+.quadrado-ataque-1:hover:not(.selected),
+.quadrado-ataque-2:hover:not(.selected),
+.quadrado-ataque-3:hover:not(.selected),
+.quadrado-ataque-4:hover:not(.selected),
+.quadrado-ataque-5:hover:not(.selected),
+.quadrado-ataque-6:hover:not(.selected),
+.quadrado-ataque-7:hover:not(.selected),
+.quadrado-ataque-8:hover:not(.selected),
+.quadrado-ataque-9:hover:not(.selected),
+.quadrado-ataque-10:hover:not(.selected),
+.quadrado-ataque-11:hover:not(.selected),
+.quadrado-ataque-12:hover:not(.selected),
+.quadrado-ataque-13:hover:not(.selected),
+.quadrado-ataque-14:hover:not(.selected),
+.quadrado-ataque-15:hover:not(.selected),
+.quadrado-defesa-1:hover:not(.selected),
+.quadrado-defesa-2:hover:not(.selected),
+.quadrado-defesa-3:hover:not(.selected),
+.quadrado-defesa-4:hover:not(.selected),
+.quadrado-defesa-5:hover:not(.selected),
+.quadrado-defesa-6:hover:not(.selected),
+.quadrado-defesa-7:hover:not(.selected),
+.quadrado-defesa-8:hover:not(.selected),
+.quadrado-defesa-9:hover:not(.selected),
+.quadrado-defesa-10:hover:not(.selected),
+.quadrado-defesa-11:hover:not(.selected),
+.quadrado-defesa-12:hover:not(.selected),
+.quadrado-defesa-13:hover:not(.selected),
+.quadrado-defesa-14:hover:not(.selected),
+.quadrado-defesa-15:hover:not(.selected),
+.quadrado-ps-1:hover:not(.selected),
+.quadrado-ps-2:hover:not(.selected),
+.quadrado-ps-3:hover:not(.selected),
+.quadrado-ps-4:hover:not(.selected),
+.quadrado-ps-5:hover:not(.selected),
+.quadrado-ps-6:hover:not(.selected),
+.quadrado-ps-7:hover:not(.selected),
+.quadrado-ps-8:hover:not(.selected),
+.quadrado-ps-9:hover:not(.selected),
+.quadrado-ps-10:hover:not(.selected),
+.quadrado-ps-11:hover:not(.selected),
+.quadrado-ps-12:hover:not(.selected),
+.quadrado-ps-13:hover:not(.selected),
+.quadrado-ps-14:hover:not(.selected),
+.quadrado-ps-15:hover:not(.selected) {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+/* Arredondando a bora do último quadradinho selecionado */
+.last-selected {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Elemento-pai / Posicionando botões */
+.botoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* Posicionando Botão "Limpar" */
+.botao-limpar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50%;
+  height: 40px;
+}
+
+/* Botão "Limpar" */
+.botao-limpar button {
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+
+  font-family: "regular";
+  font-size: 14px;
+  color: #3d8897;
+
+  cursor: pointer;
+}
+
+.botao-limpar button:hover {
+  color: red;
+  font-size: 14.49px;
+  transition: all 0.2s;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Posicionando Botão "Calcular" */
+.botao-calcular {
+  width: 50%;
+  height: 45px;
+}
+
+/* Botão "Calcular" */
+.botao-calcular button {
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+
+  font-family: "light";
+  font-size: 16px;
+  color: #3d8897;
+  border: 1.5px solid #3d8897;
+
+  cursor: pointer;
+}
+
+.botao-calcular button:hover {
+  background-color: #3d8897;
+  color: #aff3c0;
+  transition: all 0.2s;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.08));
+}
+
+/* Quadrado "Resultado" - Posicionando */
+.resultado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100px;
+  border-radius: 25px;
+
+  border: solid 1.5px #e1e3e0;
+}
+
+/* Quadrado "Resultado" - Texto */
+.resultado-texto-mensagem {
+  font-family: "light-italic";
+  font-size: 14px;
+  text-align: center;
+  color: #bababa;
+  padding: 10px;
+
+  cursor: default;
+}
+
+/* Quadrado "Resultado" - Apenas a porcentagem */
+.resultado-porcentagem {
+  font-family: "bold";
+  color: #3d8897;
+}
+
+/* Elemento-pai da seção de ajuda */
+.ajuda {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  margin-top: 30px;
+  width: 100%;
+  height: 20px;
+}
+
+/* Ajustando o ícone de interrogação */
+.interrogação a img {
+  width: 20px;
+  height: 20px;
+}
+
+.interrogação a img:hover {
+  opacity: 0.4;
+  transition: all 0.3s;
+
+  cursor: pointer;
+}
+
+/* ================================================================================ */
+/* RESPONSIVIDADE /*
+/* Configurações para os quadradinhos quando a tela for menor que 410px */
+@media screen and (max-width: 410px) {
+  .retangulo {
+    margin-top: 63px;
+    margin-bottom: 63px;
+  }
+
+  /* Título de cada atributo ("Ataque", "Defesa" e "PS") */
+  .texto-titulo-ataque,
+  .texto-titulo-defesa,
+  .texto-titulo-ps {
+    font-size: 15px;
+  }
+
+  /* Stats de cada atributo (Inicialmente 0 para os três atributos) */
+  .texto-stat-ataque,
+  .texto-stat-defesa,
+  .texto-stat-ps {
+    font-size: 15px;
+  }
+
+  /* Botão "Limpar" */
+  .botao-limpar button {
+    font-size: 13.5px;
+  }
+
+  .botao-limpar button:hover {
+    font-size: 14px;
+  }
+
+  /* Botão "Calcular" */
+  .botao-calcular button {
+    font-size: 14.5px;
+  }
+
+  /* Quadrado "Resultado" - Texto */
+  .resultado-texto-mensagem {
+    font-size: 13.5px;
+  }
+
+  /* Elemento-pai dos quadradinhos de cada atributo */
+  .quadrados-ataque,
+  .quadrados-defesa,
+  .quadrados-ps {
+    height: 14px;
+  }
+
+  /* Personalizando CADA quadradinho (Ataque) */
+  .quadrado-ataque-1,
+  .quadrado-ataque-2,
+  .quadrado-ataque-3,
+  .quadrado-ataque-4,
+  .quadrado-ataque-5,
+  .quadrado-ataque-6,
+  .quadrado-ataque-7,
+  .quadrado-ataque-8,
+  .quadrado-ataque-9,
+  .quadrado-ataque-10,
+  .quadrado-ataque-11,
+  .quadrado-ataque-12,
+  .quadrado-ataque-13,
+  .quadrado-ataque-14,
+  .quadrado-ataque-15 {
+    height: 14px;
+  }
+
+  /* Personalizando CADA quadradinho (Defesa) */
+  .quadrado-defesa-1,
+  .quadrado-defesa-2,
+  .quadrado-defesa-3,
+  .quadrado-defesa-4,
+  .quadrado-defesa-5,
+  .quadrado-defesa-6,
+  .quadrado-defesa-7,
+  .quadrado-defesa-8,
+  .quadrado-defesa-9,
+  .quadrado-defesa-10,
+  .quadrado-defesa-11,
+  .quadrado-defesa-12,
+  .quadrado-defesa-13,
+  .quadrado-defesa-14,
+  .quadrado-defesa-15 {
+    height: 14px;
+  }
+
+  /* Personalizando CADA quadradinho (PS) */
+  .quadrado-ps-1,
+  .quadrado-ps-2,
+  .quadrado-ps-3,
+  .quadrado-ps-4,
+  .quadrado-ps-5,
+  .quadrado-ps-6,
+  .quadrado-ps-7,
+  .quadrado-ps-8,
+  .quadrado-ps-9,
+  .quadrado-ps-10,
+  .quadrado-ps-11,
+  .quadrado-ps-12,
+  .quadrado-ps-13,
+  .quadrado-ps-14,
+  .quadrado-ps-15 {
+    height: 14px;
+  }
+}
+
+/* Configurações para os quadradinhos quando a tela for menor que 370px */
+@media screen and (max-width: 370px) {
+  .retangulo {
+    margin-top: 66px;
+    margin-bottom: 66px;
+  }
+
+  /* Título de cada atributo ("Ataque", "Defesa" e "PS") */
+  .texto-titulo-ataque,
+  .texto-titulo-defesa,
+  .texto-titulo-ps {
+    font-size: 14.5px;
+  }
+
+  /* Stats de cada atributo (Inicialmente 0 para os três atributos) */
+  .texto-stat-ataque,
+  .texto-stat-defesa,
+  .texto-stat-ps {
+    font-size: 14.5px;
+  }
+
+  /* Botão "Limpar" */
+  .botao-limpar button {
+    font-size: 13px;
+  }
+
+  .botao-limpar button:hover {
+    font-size: 13.5px;
+  }
+
+  /* Botão "Calcular" */
+  .botao-calcular button {
+    font-size: 14px;
+  }
+
+  /* Quadrado "Resultado" - Texto */
+  .resultado-texto-mensagem {
+    font-size: 13px;
+  }
+
+  /* Elemento-pai dos quadradinhos de cada atributo */
+  .quadrados-ataque,
+  .quadrados-defesa,
+  .quadrados-ps {
+    height: 13px;
+  }
+
+  /* Personalizando CADA quadradinho (Ataque) */
+  .quadrado-ataque-1,
+  .quadrado-ataque-2,
+  .quadrado-ataque-3,
+  .quadrado-ataque-4,
+  .quadrado-ataque-5,
+  .quadrado-ataque-6,
+  .quadrado-ataque-7,
+  .quadrado-ataque-8,
+  .quadrado-ataque-9,
+  .quadrado-ataque-10,
+  .quadrado-ataque-11,
+  .quadrado-ataque-12,
+  .quadrado-ataque-13,
+  .quadrado-ataque-14,
+  .quadrado-ataque-15 {
+    height: 13px;
+  }
+
+  /* Personalizando CADA quadradinho (Defesa) */
+  .quadrado-defesa-1,
+  .quadrado-defesa-2,
+  .quadrado-defesa-3,
+  .quadrado-defesa-4,
+  .quadrado-defesa-5,
+  .quadrado-defesa-6,
+  .quadrado-defesa-7,
+  .quadrado-defesa-8,
+  .quadrado-defesa-9,
+  .quadrado-defesa-10,
+  .quadrado-defesa-11,
+  .quadrado-defesa-12,
+  .quadrado-defesa-13,
+  .quadrado-defesa-14,
+  .quadrado-defesa-15 {
+    height: 13px;
+  }
+
+  /* Personalizando CADA quadradinho (PS) */
+  .quadrado-ps-1,
+  .quadrado-ps-2,
+  .quadrado-ps-3,
+  .quadrado-ps-4,
+  .quadrado-ps-5,
+  .quadrado-ps-6,
+  .quadrado-ps-7,
+  .quadrado-ps-8,
+  .quadrado-ps-9,
+  .quadrado-ps-10,
+  .quadrado-ps-11,
+  .quadrado-ps-12,
+  .quadrado-ps-13,
+  .quadrado-ps-14,
+  .quadrado-ps-15 {
+    height: 13px;
+  }
+}
+
+/* Configurações para os quadradinhos quando a tela for menor que 340px */
+@media screen and (max-width: 340px) {
+  .retangulo {
+    margin-top: 69px;
+    margin-bottom: 69px;
+  }
+
+  /* Título de cada atributo ("Ataque", "Defesa" e "PS") */
+  .texto-titulo-ataque,
+  .texto-titulo-defesa,
+  .texto-titulo-ps {
+    font-size: 14px;
+  }
+
+  /* Stats de cada atributo (Inicialmente 0 para os três atributos) */
+  .texto-stat-ataque,
+  .texto-stat-defesa,
+  .texto-stat-ps {
+    font-size: 14px;
+  }
+
+  /* Botão "Limpar" */
+  .botao-limpar button {
+    font-size: 12.5px;
+  }
+
+  .botao-limpar button:hover {
+    font-size: 13px;
+  }
+
+  /* Botão "Calcular" */
+  .botao-calcular button {
+    font-size: 13.5px;
+  }
+
+  /* Quadrado "Resultado" - Texto */
+  .resultado-texto-mensagem {
+    font-size: 12.5px;
+  }
+
+  /* Elemento-pai dos quadradinhos de cada atributo */
+  .quadrados-ataque,
+  .quadrados-defesa,
+  .quadrados-ps {
+    height: 12px;
+  }
+
+  /* Elemento-pai dos quadradinhos de cada atributo */
+  .quadrados-ataque,
+  .quadrados-defesa,
+  .quadrados-ps {
+    height: 12px;
+  }
+
+  /* Personalizando CADA quadradinho (Ataque) */
+  .quadrado-ataque-1,
+  .quadrado-ataque-2,
+  .quadrado-ataque-3,
+  .quadrado-ataque-4,
+  .quadrado-ataque-5,
+  .quadrado-ataque-6,
+  .quadrado-ataque-7,
+  .quadrado-ataque-8,
+  .quadrado-ataque-9,
+  .quadrado-ataque-10,
+  .quadrado-ataque-11,
+  .quadrado-ataque-12,
+  .quadrado-ataque-13,
+  .quadrado-ataque-14,
+  .quadrado-ataque-15 {
+    height: 12px;
+  }
+
+  /* Personalizando CADA quadradinho (Defesa) */
+  .quadrado-defesa-1,
+  .quadrado-defesa-2,
+  .quadrado-defesa-3,
+  .quadrado-defesa-4,
+  .quadrado-defesa-5,
+  .quadrado-defesa-6,
+  .quadrado-defesa-7,
+  .quadrado-defesa-8,
+  .quadrado-defesa-9,
+  .quadrado-defesa-10,
+  .quadrado-defesa-11,
+  .quadrado-defesa-12,
+  .quadrado-defesa-13,
+  .quadrado-defesa-14,
+  .quadrado-defesa-15 {
+    height: 12px;
+  }
+
+  /* Personalizando CADA quadradinho (PS) */
+  .quadrado-ps-1,
+  .quadrado-ps-2,
+  .quadrado-ps-3,
+  .quadrado-ps-4,
+  .quadrado-ps-5,
+  .quadrado-ps-6,
+  .quadrado-ps-7,
+  .quadrado-ps-8,
+  .quadrado-ps-9,
+  .quadrado-ps-10,
+  .quadrado-ps-11,
+  .quadrado-ps-12,
+  .quadrado-ps-13,
+  .quadrado-ps-14,
+  .quadrado-ps-15 {
+    height: 12px;
+  }
+}
+
+/* Configurações para os quadradinhos quando a tela for menor que 320px */
+@media screen and (max-width: 320px) {
+  .retangulo {
+    margin-top: 72px;
+    margin-bottom: 72px;
+  }
+
+  /* Título de cada atributo ("Ataque", "Defesa" e "PS") */
+  .texto-titulo-ataque,
+  .texto-titulo-defesa,
+  .texto-titulo-ps {
+    font-size: 13.5px;
+  }
+
+  /* Stats de cada atributo (Inicialmente 0 para os três atributos) */
+  .texto-stat-ataque,
+  .texto-stat-defesa,
+  .texto-stat-ps {
+    font-size: 13.5px;
+  }
+
+  /* Botão "Limpar" */
+  .botao-limpar button {
+    font-size: 12px;
+  }
+
+  .botao-limpar button:hover {
+    font-size: 12.5px;
+  }
+
+  /* Botão "Calcular" */
+  .botao-calcular button {
+    font-size: 13px;
+  }
+
+  /* Quadrado "Resultado" - Texto */
+  .resultado-texto-mensagem {
+    font-size: 12px;
+  }
+
+  /* Elemento-pai dos quadradinhos de cada atributo */
+  .quadrados-ataque,
+  .quadrados-defesa,
+  .quadrados-ps {
+    height: 11px;
+  }
+
+  /* Personalizando CADA quadradinho (Ataque) */
+  .quadrado-ataque-1,
+  .quadrado-ataque-2,
+  .quadrado-ataque-3,
+  .quadrado-ataque-4,
+  .quadrado-ataque-5,
+  .quadrado-ataque-6,
+  .quadrado-ataque-7,
+  .quadrado-ataque-8,
+  .quadrado-ataque-9,
+  .quadrado-ataque-10,
+  .quadrado-ataque-11,
+  .quadrado-ataque-12,
+  .quadrado-ataque-13,
+  .quadrado-ataque-14,
+  .quadrado-ataque-15 {
+    height: 11px;
+  }
+
+  /* Personalizando CADA quadradinho (Defesa) */
+  .quadrado-defesa-1,
+  .quadrado-defesa-2,
+  .quadrado-defesa-3,
+  .quadrado-defesa-4,
+  .quadrado-defesa-5,
+  .quadrado-defesa-6,
+  .quadrado-defesa-7,
+  .quadrado-defesa-8,
+  .quadrado-defesa-9,
+  .quadrado-defesa-10,
+  .quadrado-defesa-11,
+  .quadrado-defesa-12,
+  .quadrado-defesa-13,
+  .quadrado-defesa-14,
+  .quadrado-defesa-15 {
+    height: 11px;
+  }
+
+  /* Personalizando CADA quadradinho (PS) */
+  .quadrado-ps-1,
+  .quadrado-ps-2,
+  .quadrado-ps-3,
+  .quadrado-ps-4,
+  .quadrado-ps-5,
+  .quadrado-ps-6,
+  .quadrado-ps-7,
+  .quadrado-ps-8,
+  .quadrado-ps-9,
+  .quadrado-ps-10,
+  .quadrado-ps-11,
+  .quadrado-ps-12,
+  .quadrado-ps-13,
+  .quadrado-ps-14,
+  .quadrado-ps-15 {
+    height: 11px;
+  }
+}
+
+/* Configurações para os quadradinhos quando a tela for menor que 270px */
+@media screen and (max-width: 270px) {
+  .retangulo {
+    margin-top: 73px;
+    margin-bottom: 73px;
+  }
+
+  /* Título de cada atributo ("Ataque", "Defesa" e "PS") */
+  .texto-titulo-ataque,
+  .texto-titulo-defesa,
+  .texto-titulo-ps {
+    font-size: 13px;
+  }
+
+  /* Stats de cada atributo (Inicialmente 0 para os três atributos) */
+  .texto-stat-ataque,
+  .texto-stat-defesa,
+  .texto-stat-ps {
+    font-size: 13px;
+  }
+
+  /* Botão "Limpar" */
+  .botao-limpar button {
+    font-size: 11.5px;
+  }
+
+  .botao-limpar button:hover {
+    font-size: 12px;
+  }
+
+  /* Botão "Calcular" */
+  .botao-calcular button {
+    font-size: 12.5px;
+  }
+
+  /* Quadrado "Resultado" - Texto */
+  .resultado-texto-mensagem {
+    font-size: 11.5px;
+  }
+
+  /* Elemento-pai dos quadradinhos de cada atributo */
+  .quadrados-ataque,
+  .quadrados-defesa,
+  .quadrados-ps {
+    height: 10px;
+  }
+
+  /* Personalizando CADA quadradinho (Ataque) */
+  .quadrado-ataque-1,
+  .quadrado-ataque-2,
+  .quadrado-ataque-3,
+  .quadrado-ataque-4,
+  .quadrado-ataque-5,
+  .quadrado-ataque-6,
+  .quadrado-ataque-7,
+  .quadrado-ataque-8,
+  .quadrado-ataque-9,
+  .quadrado-ataque-10,
+  .quadrado-ataque-11,
+  .quadrado-ataque-12,
+  .quadrado-ataque-13,
+  .quadrado-ataque-14,
+  .quadrado-ataque-15 {
+    height: 10px;
+  }
+
+  /* Personalizando CADA quadradinho (Defesa) */
+  .quadrado-defesa-1,
+  .quadrado-defesa-2,
+  .quadrado-defesa-3,
+  .quadrado-defesa-4,
+  .quadrado-defesa-5,
+  .quadrado-defesa-6,
+  .quadrado-defesa-7,
+  .quadrado-defesa-8,
+  .quadrado-defesa-9,
+  .quadrado-defesa-10,
+  .quadrado-defesa-11,
+  .quadrado-defesa-12,
+  .quadrado-defesa-13,
+  .quadrado-defesa-14,
+  .quadrado-defesa-15 {
+    height: 10px;
+  }
+
+  /* Personalizando CADA quadradinho (PS) */
+  .quadrado-ps-1,
+  .quadrado-ps-2,
+  .quadrado-ps-3,
+  .quadrado-ps-4,
+  .quadrado-ps-5,
+  .quadrado-ps-6,
+  .quadrado-ps-7,
+  .quadrado-ps-8,
+  .quadrado-ps-9,
+  .quadrado-ps-10,
+  .quadrado-ps-11,
+  .quadrado-ps-12,
+  .quadrado-ps-13,
+  .quadrado-ps-14,
+  .quadrado-ps-15 {
+    height: 10px;
+  }
+}
+
+/* Configurações para os quadradinhos quando a tela for menor que 250px */
+@media screen and (max-width: 250px) {
+  .retangulo {
+    margin-top: 76px;
+    margin-bottom: 76px;
+  }
+
+  /* Título de cada atributo ("Ataque", "Defesa" e "PS") */
+  .texto-titulo-ataque,
+  .texto-titulo-defesa,
+  .texto-titulo-ps {
+    font-size: 12.5px;
+  }
+
+  /* Stats de cada atributo (Inicialmente 0 para os três atributos) */
+  .texto-stat-ataque,
+  .texto-stat-defesa,
+  .texto-stat-ps {
+    font-size: 12.5px;
+  }
+
+  /* Botão "Limpar" */
+  .botao-limpar button {
+    font-size: 11px;
+  }
+
+  .botao-limpar button:hover {
+    font-size: 11.5px;
+  }
+
+  /* Botão "Calcular" */
+  .botao-calcular button {
+    font-size: 12px;
+  }
+
+  /* Quadrado "Resultado" - Texto */
+  .resultado-texto-mensagem {
+    font-size: 11px;
+  }
+
+  /* Elemento-pai dos quadradinhos de cada atributo */
+  .quadrados-ataque,
+  .quadrados-defesa,
+  .quadrados-ps {
+    height: 9px;
+  }
+
+  /* Personalizando CADA quadradinho (Ataque) */
+  .quadrado-ataque-1,
+  .quadrado-ataque-2,
+  .quadrado-ataque-3,
+  .quadrado-ataque-4,
+  .quadrado-ataque-5,
+  .quadrado-ataque-6,
+  .quadrado-ataque-7,
+  .quadrado-ataque-8,
+  .quadrado-ataque-9,
+  .quadrado-ataque-10,
+  .quadrado-ataque-11,
+  .quadrado-ataque-12,
+  .quadrado-ataque-13,
+  .quadrado-ataque-14,
+  .quadrado-ataque-15 {
+    height: 9px;
+  }
+
+  /* Personalizando CADA quadradinho (Defesa) */
+  .quadrado-defesa-1,
+  .quadrado-defesa-2,
+  .quadrado-defesa-3,
+  .quadrado-defesa-4,
+  .quadrado-defesa-5,
+  .quadrado-defesa-6,
+  .quadrado-defesa-7,
+  .quadrado-defesa-8,
+  .quadrado-defesa-9,
+  .quadrado-defesa-10,
+  .quadrado-defesa-11,
+  .quadrado-defesa-12,
+  .quadrado-defesa-13,
+  .quadrado-defesa-14,
+  .quadrado-defesa-15 {
+    height: 9px;
+  }
+
+  /* Personalizando CADA quadradinho (PS) */
+  .quadrado-ps-1,
+  .quadrado-ps-2,
+  .quadrado-ps-3,
+  .quadrado-ps-4,
+  .quadrado-ps-5,
+  .quadrado-ps-6,
+  .quadrado-ps-7,
+  .quadrado-ps-8,
+  .quadrado-ps-9,
+  .quadrado-ps-10,
+  .quadrado-ps-11,
+  .quadrado-ps-12,
+  .quadrado-ps-13,
+  .quadrado-ps-14,
+  .quadrado-ps-15 {
+    height: 9px;
+  }
+}
+
+/* Configurações para os quadradinhos quando a tela for menor que 220px */
+@media screen and (max-width: 220px) {
+  .retangulo {
+    margin-top: 78px;
+    margin-bottom: 78px;
+  }
+
+  /* Título de cada atributo ("Ataque", "Defesa" e "PS") */
+  .texto-titulo-ataque,
+  .texto-titulo-defesa,
+  .texto-titulo-ps {
+    font-size: 12px;
+  }
+
+  /* Stats de cada atributo (Inicialmente 0 para os três atributos) */
+  .texto-stat-ataque,
+  .texto-stat-defesa,
+  .texto-stat-ps {
+    font-size: 12px;
+  }
+
+  /* Botão "Limpar" */
+  .botao-limpar button {
+    font-size: 10.5px;
+  }
+
+  .botao-limpar button:hover {
+    font-size: 11px;
+  }
+
+  /* Botão "Calcular" */
+  .botao-calcular button {
+    font-size: 11.5px;
+  }
+
+  /* Quadrado "Resultado" - Texto */
+  .resultado-texto-mensagem {
+    font-size: 10.5px;
+  }
+
+  /* Elemento-pai dos quadradinhos de cada atributo */
+  .quadrados-ataque,
+  .quadrados-defesa,
+  .quadrados-ps {
+    height: 8px;
+  }
+
+  /* Personalizando CADA quadradinho (Ataque) */
+  .quadrado-ataque-1,
+  .quadrado-ataque-2,
+  .quadrado-ataque-3,
+  .quadrado-ataque-4,
+  .quadrado-ataque-5,
+  .quadrado-ataque-6,
+  .quadrado-ataque-7,
+  .quadrado-ataque-8,
+  .quadrado-ataque-9,
+  .quadrado-ataque-10,
+  .quadrado-ataque-11,
+  .quadrado-ataque-12,
+  .quadrado-ataque-13,
+  .quadrado-ataque-14,
+  .quadrado-ataque-15 {
+    height: 8px;
+  }
+
+  /* Personalizando CADA quadradinho (Defesa) */
+  .quadrado-defesa-1,
+  .quadrado-defesa-2,
+  .quadrado-defesa-3,
+  .quadrado-defesa-4,
+  .quadrado-defesa-5,
+  .quadrado-defesa-6,
+  .quadrado-defesa-7,
+  .quadrado-defesa-8,
+  .quadrado-defesa-9,
+  .quadrado-defesa-10,
+  .quadrado-defesa-11,
+  .quadrado-defesa-12,
+  .quadrado-defesa-13,
+  .quadrado-defesa-14,
+  .quadrado-defesa-15 {
+    height: 8px;
+  }
+
+  /* Personalizando CADA quadradinho (PS) */
+  .quadrado-ps-1,
+  .quadrado-ps-2,
+  .quadrado-ps-3,
+  .quadrado-ps-4,
+  .quadrado-ps-5,
+  .quadrado-ps-6,
+  .quadrado-ps-7,
+  .quadrado-ps-8,
+  .quadrado-ps-9,
+  .quadrado-ps-10,
+  .quadrado-ps-11,
+  .quadrado-ps-12,
+  .quadrado-ps-13,
+  .quadrado-ps-14,
+  .quadrado-ps-15 {
+    height: 8px;
+  }
+}
+
+/* Configurações para os quadradinhos quando a tela for menor que 200px */
+@media screen and (max-width: 200px) {
+  .retangulo {
+    margin-top: 81px;
+    margin-bottom: 81px;
+  }
+
+  /* Título de cada atributo ("Ataque", "Defesa" e "PS") */
+  .texto-titulo-ataque,
+  .texto-titulo-defesa,
+  .texto-titulo-ps {
+    font-size: 11.5px;
+  }
+
+  /* Stats de cada atributo (Inicialmente 0 para os três atributos) */
+  .texto-stat-ataque,
+  .texto-stat-defesa,
+  .texto-stat-ps {
+    font-size: 11.5px;
+  }
+
+  /* Botão "Limpar" */
+  .botao-limpar button {
+    font-size: 10px;
+  }
+
+  .botao-limpar button:hover {
+    font-size: 10.5px;
+  }
+
+  /* Botão "Calcular" */
+  .botao-calcular button {
+    font-size: 11px;
+  }
+
+  /* Quadrado "Resultado" - Texto */
+  .resultado-texto-mensagem {
+    font-size: 10px;
+  }
+
+  /* Elemento-pai dos quadradinhos de cada atributo */
+  .quadrados-ataque,
+  .quadrados-defesa,
+  .quadrados-ps {
+    height: 7px;
+  }
+
+  /* Personalizando CADA quadradinho (Ataque) */
+  .quadrado-ataque-1,
+  .quadrado-ataque-2,
+  .quadrado-ataque-3,
+  .quadrado-ataque-4,
+  .quadrado-ataque-5,
+  .quadrado-ataque-6,
+  .quadrado-ataque-7,
+  .quadrado-ataque-8,
+  .quadrado-ataque-9,
+  .quadrado-ataque-10,
+  .quadrado-ataque-11,
+  .quadrado-ataque-12,
+  .quadrado-ataque-13,
+  .quadrado-ataque-14,
+  .quadrado-ataque-15 {
+    height: 7px;
+  }
+
+  /* Personalizando CADA quadradinho (Defesa) */
+  .quadrado-defesa-1,
+  .quadrado-defesa-2,
+  .quadrado-defesa-3,
+  .quadrado-defesa-4,
+  .quadrado-defesa-5,
+  .quadrado-defesa-6,
+  .quadrado-defesa-7,
+  .quadrado-defesa-8,
+  .quadrado-defesa-9,
+  .quadrado-defesa-10,
+  .quadrado-defesa-11,
+  .quadrado-defesa-12,
+  .quadrado-defesa-13,
+  .quadrado-defesa-14,
+  .quadrado-defesa-15 {
+    height: 7px;
+  }
+
+  /* Personalizando CADA quadradinho (PS) */
+  .quadrado-ps-1,
+  .quadrado-ps-2,
+  .quadrado-ps-3,
+  .quadrado-ps-4,
+  .quadrado-ps-5,
+  .quadrado-ps-6,
+  .quadrado-ps-7,
+  .quadrado-ps-8,
+  .quadrado-ps-9,
+  .quadrado-ps-10,
+  .quadrado-ps-11,
+  .quadrado-ps-12,
+  .quadrado-ps-13,
+  .quadrado-ps-14,
+  .quadrado-ps-15 {
+    height: 7px;
+  }
+}

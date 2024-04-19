@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head> <!-- Head = Metadados do arquivo. -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IV | Pokémon GO</title>
+    <link rel="stylesheet" href="Estilo/style.css">
+    <script src="script.js"></script>
+
+</head>
+
+<body> <!-- É a tag que contém o corpo de um documento HTML, ou seja, todo o conteúdo visível do site.-->
+    <!-- Elemento-pai. -->
+    <div class="container">
+
+        <!-- TODOS os elementos do retângulo. -->
+        <div class="retangulo">
+
+            <!-- TODOS os elementos de "Ataque", "Defesa" e "PS". -->
+            <div class="atributos">
+
+                <!-- Elemento-pai do atributo "Ataque". -->
+                <div class="ataque">
+
+                    <!-- Contém a escrita do atributo e a escrita da contagem de quadrados. -->
+                    <div class="texto-ataque">
+                        <h1 class="texto-titulo-ataque">Ataque</h1>
+                        <h2 class="texto-stat-ataque">0</h2>
+                    </div>
+                    <!-- Quadradinhos do atributo -->
+                    <div class="quadrados-ataque"
+                        title="DICA: Dê dois cliques aqui para zerar os stats já selecionados (se houver) para esse atributo.">
+
+                        <div class="quadrados-ataque-align">
+                            <div class="quadrado-ataque-1"></div>
+                            <div class="quadrado-ataque-2"></div>
+                            <div class="quadrado-ataque-3"></div>
+                            <div class="quadrado-ataque-4"></div>
+                            <div class="quadrado-ataque-5"></div>
+
+                            <div class="quadrado-ataque-6"></div>
+                            <div class="quadrado-ataque-7"></div>
+                            <div class="quadrado-ataque-8"></div>
+                            <div class="quadrado-ataque-9"></div>
+                            <div class="quadrado-ataque-10"></div>
+
+                            <div class="quadrado-ataque-11"></div>
+                            <div class="quadrado-ataque-12"></div>
+                            <div class="quadrado-ataque-13"></div>
+                            <div class="quadrado-ataque-14"></div>
+                            <div class="quadrado-ataque-15"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Elemento-pai do atributo "Defesa". -->
+                <div class="defesa">
+
+                    <!-- Contém a escrita do atributo e a escrita da contagem de quadrados. -->
+                    <div class="texto-defesa">
+                        <h1 class="texto-titulo-defesa">Defesa</h1>
+                        <h2 class="texto-stat-defesa">0</h2>
+                    </div>
+                    <!-- Quadradinhos do atributo -->
+                    <div class="quadrados-defesa"
+                        title="DICA: Dê dois cliques aqui para zerar os stats já selecionados (se houver) para esse atributo.">
+                        <div class="quadrados-defesa-align">
+                            <div class="quadrado-defesa-1"></div>
+                            <div class="quadrado-defesa-2"></div>
+                            <div class="quadrado-defesa-3"></div>
+                            <div class="quadrado-defesa-4"></div>
+                            <div class="quadrado-defesa-5"></div>
+
+                            <div class="quadrado-defesa-6"></div>
+                            <div class="quadrado-defesa-7"></div>
+                            <div class="quadrado-defesa-8"></div>
+                            <div class="quadrado-defesa-9"></div>
+                            <div class="quadrado-defesa-10"></div>
+
+                            <div class="quadrado-defesa-11"></div>
+                            <div class="quadrado-defesa-12"></div>
+                            <div class="quadrado-defesa-13"></div>
+                            <div class="quadrado-defesa-14"></div>
+                            <div class="quadrado-defesa-15"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Elemento-pai do atributo "PS". -->
+                <div class="ps">
+
+                    <!-- Contém a escrita do atributo e a escrita da contagem de quadrados. -->
+                    <div class="texto-ps">
+                        <h1 class="texto-titulo-ps">PS</h1>
+                        <h2 class="texto-stat-ps">0</h2>
+                    </div>
+                    <!-- Quadradinhos do atributo -->
+                    <div class="quadrados-ps"
+                        title="DICA: Dê dois cliques aqui para zerar os stats já selecionados (se houver) para esse atributo.">
+                        <div class="quadrados-ps-align">
+                            <div class="quadrado-ps-1"></div>
+                            <div class="quadrado-ps-2"></div>
+                            <div class="quadrado-ps-3"></div>
+                            <div class="quadrado-ps-4"></div>
+                            <div class="quadrado-ps-5"></div>
+
+                            <div class="quadrado-ps-6"></div>
+                            <div class="quadrado-ps-7"></div>
+                            <div class="quadrado-ps-8"></div>
+                            <div class="quadrado-ps-9"></div>
+                            <div class="quadrado-ps-10"></div>
+
+                            <div class="quadrado-ps-11"></div>
+                            <div class="quadrado-ps-12"></div>
+                            <div class="quadrado-ps-13"></div>
+                            <div class="quadrado-ps-14"></div>
+                            <div class="quadrado-ps-15"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Elemento-Pai para os botões. -->
+            <div class="botoes">
+
+                <!-- Botão "Limpar" -->
+                <div class="botao-limpar" title="Limpar TODOS os atributos selecionados.">
+                    <button>Limpar</button>
+                </div>
+                <!-- Botão "Calcular" -->
+                <div class="botao-calcular" title="Calcular o IV do Pokémon.">
+                    <button>Calcular</button>
+                </div>
+
+            </div>
+
+            <!-- Elemento-Pai para a sessão de "Resultado". -->
+            <div class="resultado">
+
+                <!-- Texto que, posteriormente, irá mostrar o resultado do cálculo de IV. -->
+                <div class="resultado-texto">
+                    <h2 class="resultado-texto-mensagem">O IV do seu Pokémon aparecerá aqui!</h2>
+                </div>
+
+            </div>
+
+            <!-- Elemento-Pai para a sessão "Ajuda". -->
+            <div class="ajuda">
+
+                <!-- Botão "?". -->
+                <div class="interrogação">
+
+                    <!-- Utilizei "a" para poder colocar um link no botão. -->
+                    <a href="entenda" title="Dúvidas? Entenda o projeto.">
+                        <!-- Sem .html pq no .htacess coloquei uma regrinha-->
+                        <img src="Estilo/Simbolos/interrogacao.svg" alt="Ponto de Interrogação">
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
